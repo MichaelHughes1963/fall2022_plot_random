@@ -1,10 +1,27 @@
 ## PlotRandom.R
 ##
-## Purpose: a function that will generate a random sample
-##          of normal deviates, plot a histogram and maybe provide
-##          some "other stuff"
+## Purpose: build a function that will generate a random sample
+##          of normal deviates, plot a histogram and provide
+##          a list of summary results (mean, SD, generated random values)
+##
+## Input parameters:
+##     numpts = the number of points to generate
+##     mu = the theoretical mean of the Normal distribution
+##     sigma = the standard deviation of the Normal distribution
+##     numbins = the number of bins for the histogram
+##     title = user specified title for the histogram
+##     meanColor = the color for the overlaid mean
+##     seed = a random number generator seed, to ensure
+##            reproducibility
+##
+## Outputs: A list with the following elements
+##     RandomValues = a vector with the generated random 
+##                     values
+##     Mean_x = the sample mean of RandomValues
+##     StdDev_x = the sample standard deviation of RandomValues
+##
 
-## Stuff from last time....
+## First, stuff from last time....
 plotRandomD <- function(numpts=100) {
   hist(rnorm(numpts))
 }
@@ -13,7 +30,7 @@ plotRandomD()
 
 ###########################
 
-## Let's build in more flexibility for our function:
+## Now, let's build in more flexibility for our function: 
 
 plotRandomNormals <- function(numpts=1000, mu=24, sigma=3, numbins=15,
                               title = "My histogram, Oct 14 2022",
